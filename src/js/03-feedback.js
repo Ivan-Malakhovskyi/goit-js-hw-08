@@ -34,11 +34,15 @@ function onSubmitForm(evt) {
 
   const data = getFormData();
 
-  console.log(data);
+  if (data.email === '' || data.message === '') {
+    alert('Усі поля повинні бути заповнені!😉');
+  } else {
+    console.log(data);
 
-  evt.currentTarget.reset();
+    evt.currentTarget.reset();
 
-  localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(STORAGE_KEY);
+  }
 }
 
 function valueTextForm() {
@@ -64,10 +68,3 @@ function getFormData() {
     message: message.value,
   };
 }
-
-// selectors.form.addEventListener('input', evt => {
-//   formData[evt.target.name] = evt.target.value;
-//   console.log(' formData', formData);
-// });
-
-// const formData = {};
